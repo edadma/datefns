@@ -12,7 +12,7 @@ import scala.scalajs.js
   *   A new date with the days added
   *
   * @example
-  *   {{{ val date = createDate(2023, 11, 25) // December 25, 2023 val newDate = addDays(date, 7) // January 1, 2024 }}}
+  *   {{{val date = createDate(2023, 11, 25) // December 25, 2023 val newDate = addDays(date, 7) // January 1, 2024}}}
   */
 def addDays(date: Date, amount: Int): Date =
   val result = new js.Date(date.getTime)
@@ -74,7 +74,7 @@ def addYears(date: Date, amount: Int): Date =
   *   A new date with the days subtracted
   *
   * @example
-  *   {{{ val date = createDate(2023, 0, 1) // January 1, 2023 val newDate = subDays(date, 7) // December 25, 2022 }}}
+  *   {{{val date = createDate(2023, 0, 1) // January 1, 2023 val newDate = subDays(date, 7) // December 25, 2022}}}
   *
   * @see
   *   [[addDays]]
@@ -92,7 +92,7 @@ def subDays(date: Date, amount: Int): Date = addDays(date, -amount)
   *   A new date with the months subtracted
   *
   * @example
-  *   {{{ val date = createDate(2023, 2, 15) // March 15, 2023 val newDate = subMonths(date, 3) // December 15, 2022 }}}
+  *   {{{val date = createDate(2023, 2, 15) // March 15, 2023 val newDate = subMonths(date, 3) // December 15, 2022}}}
   *
   * @see
   *   [[addMonths]]
@@ -110,7 +110,7 @@ def subMonths(date: Date, amount: Int): Date = addMonths(date, -amount)
   *   A new date with the years subtracted
   *
   * @example
-  *   {{{ val date = createDate(2023, 5, 15) // June 15, 2023 val newDate = subYears(date, 3) // June 15, 2020 }}}
+  *   {{{val date = createDate(2023, 5, 15) // June 15, 2023 val newDate = subYears(date, 3) // June 15, 2020}}}
   *
   * @see
   *   [[addYears]]
