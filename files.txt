@@ -1,0 +1,17 @@
+; datefns codebase
+
+# app sources
+./src/main/scala/io/github/edadma/datefns
+Date.scala
+isToday.scala
+Main.scala
+
+# build files
+./
+build.sbt
+./project
+plugins.sbt
+
+# docs
+./
+README.md

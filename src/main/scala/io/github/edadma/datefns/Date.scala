@@ -4,7 +4,7 @@ import scala.scalajs.js
 
 opaque type Date = js.Date
 
-def now(): Date = new js.Date()
+def now: Date = new js.Date
 
 extension (d: Date)
   def getDate: Int        = d.getDate.toInt
