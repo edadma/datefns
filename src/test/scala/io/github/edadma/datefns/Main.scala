@@ -1,4 +1,4 @@
-package io.github.edadma.sjs_template
+package io.github.edadma.datefns
 
 @main def run(): Unit =
   println("Hello World!")

@@ -21,8 +21,8 @@ ThisBuild / sonatypeProfileName := "io.github.edadma"
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
-    url("https://github.com/edadma/scalajs-template"),
-    "scm:git@github.com:edadma/scalajs-template.git",
+    url("https://github.com/edadma/datefns"),
+    "scm:git@github.com:edadma/datefns.git",
   ),
 )
 ThisBuild / developers := List(
@@ -34,7 +34,7 @@ ThisBuild / developers := List(
   ),
 )
 
-ThisBuild / homepage := Some(url("https://github.com/edadma/scalajs-template"))
+ThisBuild / homepage := Some(url("https://github.com/edadma/datefns"))
 
 ThisBuild / pomIncludeRepository := { _ => false }
 ThisBuild / publishTo := {
@@ -49,12 +49,11 @@ lazy val scalajs_template = project
   .enablePlugins(ScalaJSPlugin)
 //  .enablePlugins(ScalablyTypedConverterPlugin)
   .settings(
-    name := "scalajs-template",
+    name := "datefns",
 //    libraryDependencies += "io.github.cquiroz" %%% "scala-java-time" % "2.6.0",
     libraryDependencies ++= Seq(
-//    "org.scalatest" %%% "scalatest" % "3.2.19" % "test",
+      "org.scalatest" %%% "scalatest" % "3.2.19" % "test",
     ),
-//    libraryDependencies += "com.lihaoyi" %%% "pprint" % "0.9.0" % "test",
     jsEnv                                  := new org.scalajs.jsenv.nodejs.NodeJSEnv(),
     Test / scalaJSUseMainModuleInitializer := true,
     Test / scalaJSUseTestModuleInitializer := false,
