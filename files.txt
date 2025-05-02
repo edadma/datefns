@@ -2,8 +2,8 @@
 
 # app sources
 ./src/main/scala/io/github/edadma/datefns
+comparison.scala
 Date.scala
-isToday.scala
 Main.scala
 
 # build files
