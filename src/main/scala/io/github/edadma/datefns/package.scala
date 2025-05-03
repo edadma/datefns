@@ -1,3 +1,5 @@
+package io.github.edadma
+
 /** The io.github.edadma.datefns library provides utilities for working with dates in Scala.js projects.
   *
   * This library is inspired by the JavaScript date-fns library and provides similar functionality in a Scala-friendly
@@ -73,4 +75,4 @@
   * @see
   *   [[https://github.com/edadma/datefns GitHub Repository]]
   */
-package io.github.edadma.datefns
+package object datefns {}
