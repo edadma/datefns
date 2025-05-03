@@ -6,7 +6,7 @@ package io.github.edadma
   * way. It wraps JavaScript's Date objects with an opaque type and provides extension methods and utility functions to
   * make working with dates more convenient.
   *
-  * == Overview ==
+  * ==Overview==
   *
   * The library is organized into several categories of functions:
   *
