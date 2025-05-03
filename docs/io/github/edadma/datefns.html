@@ -14,10 +14,10 @@
  <div class="doc">
   <p>The io.github.edadma.datefns library provides utilities for working with dates in Scala.js projects.</p>
   <p>This library is inspired by the JavaScript date-fns library and provides similar functionality in a Scala-friendly way. It wraps JavaScript's Date objects with an opaque type and provides extension methods and utility functions to make working with dates more convenient.</p>
-  <p>== Overview ==</p>
+  <p>==Overview==</p>
   <p>The library is organized into several categories of functions:</p>
   <ul>
-   <li>'''Date creation''': Functions to create Date objects (now, parseISO, fromUnixTime, createDate)</li>
+   <li>'''Date creation''': Functions to create Date objects (now, parseISO, fromUnixTime, newDate)</li>
    <li>'''Formatting''': Functions to format dates into strings (format, formatISO)</li>
    <li>'''Comparison''': Functions to compare dates (isAfter, isBefore, isEqual, isSameDay, etc.)</li>
    <li>'''Manipulation''': Functions to modify dates (addDays, subMonths, startOfDay, endOfMonth, etc.)</li>
@@ -31,7 +31,7 @@
 </span><span line-number="4" class=""><span class="tooltip-container"></span>val today = now
 </span><span line-number="5" class=""><span class="tooltip-container"></span>
 </span><span line-number="6" class=""><span class="tooltip-container"></span>// Create a specific date
-</span><span line-number="7" class=""><span class="tooltip-container"></span>val christmas = createDate(2023, 11, 25) // December 25, 2023
+</span><span line-number="7" class=""><span class="tooltip-container"></span>val christmas = newDate(2023, 11, 25) // December 25, 2023
 </span><span line-number="8" class=""><span class="tooltip-container"></span>
 </span><span line-number="9" class=""><span class="tooltip-container"></span>// Parse an ISO date string
 </span><span line-number="10" class=""><span class="tooltip-container"></span>val dateFromString = parseISO("2023-12-25T12:00:00.000Z")
@@ -42,7 +42,7 @@
   <div class="snippet mono-small-block">
    <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>import io.github.edadma.datefns.*
 </span><span line-number="2" class=""><span class="tooltip-container"></span>
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = createDate(2023, 11, 25, 14, 30)
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = newDate(2023, 11, 25, 14, 30)
 </span><span line-number="4" class=""><span class="tooltip-container"></span>
 </span><span line-number="5" class=""><span class="tooltip-container"></span>// Custom format
 </span><span line-number="6" class=""><span class="tooltip-container"></span>format(date, "MMMM d, yyyy 'at' h:mm a") // "December 25, 2023 at 2:30 PM"
@@ -56,8 +56,8 @@
   <div class="snippet mono-small-block">
    <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>import io.github.edadma.datefns.*
 </span><span line-number="2" class=""><span class="tooltip-container"></span>
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val date1 = createDate(2023, 0, 1)  // January 1, 2023
-</span><span line-number="4" class=""><span class="tooltip-container"></span>val date2 = createDate(2023, 11, 31) // December 31, 2023
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val date1 = newDate(2023, 0, 1)  // January 1, 2023
+</span><span line-number="4" class=""><span class="tooltip-container"></span>val date2 = newDate(2023, 11, 31) // December 31, 2023
 </span><span line-number="5" class=""><span class="tooltip-container"></span>
 </span><span line-number="6" class=""><span class="tooltip-container"></span>isBefore(date1, date2) // true
 </span><span line-number="7" class=""><span class="tooltip-container"></span>isSameYear(date1, date2) // true
@@ -69,7 +69,7 @@
   <div class="snippet mono-small-block">
    <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>import io.github.edadma.datefns.*
 </span><span line-number="2" class=""><span class="tooltip-container"></span>
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = createDate(2023, 11, 25)
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = newDate(2023, 11, 25)
 </span><span line-number="4" class=""><span class="tooltip-container"></span>
 </span><span line-number="5" class=""><span class="tooltip-container"></span>val nextWeek = addDays(date, 7)
 </span><span line-number="6" class=""><span class="tooltip-container"></span>val previousMonth = subMonths(date, 1)
@@ -168,9 +168,9 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> // Create an interval for the year 2023 val year2023 = Interval( createDate(2023, 0, 1), // January 1, 2023
-</span><span line-number="2" class=""><span class="tooltip-container"></span> createDate(2023, 11, 31) // December 31, 2023 )
-</span><span line-number="3" class=""><span class="tooltip-container"></span>// Create a week interval val weekInterval = Interval( createDate(2023, 5, 12), // June 12, 2023 createDate(2023, 5,
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> // Create an interval for the year 2023 val year2023 = Interval( newDate(2023, 0, 1), // January 1, 2023
+</span><span line-number="2" class=""><span class="tooltip-container"></span> newDate(2023, 11, 31) // December 31, 2023 )
+</span><span line-number="3" class=""><span class="tooltip-container"></span>// Create a week interval val weekInterval = Interval( newDate(2023, 5, 12), // June 12, 2023 newDate(2023, 5,
 </span><span line-number="4" class=""><span class="tooltip-container"></span>18) // June 18, 2023 )
 </span><span line-number="5" class=""><span class="tooltip-container"></span>// Create an interval between now and a week from now val currentWeek = Interval( now, addDays(now, 7) ) 
 </span></code></pre>
@@ -343,7 +343,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = createDate(2023, 11, 25) // December 25, 2023 val newDate = addDays(date, 7) // January 1, 2024
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = newDate(2023, 11, 25) // December 25, 2023 val newDate = addDays(date, 7) // January 1, 2024
 </span></code></pre>
                   <div class="buttons"></div>
                  </div>
@@ -408,13 +408,13 @@
                 <div>
                  <div class="snippet mono-small-block">
                   <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>// When the target month has fewer days than the original date's day:
-</span><span line-number="2" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = createDate(2023, 0, 31) // January 31, 2023
+</span><span line-number="2" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = newDate(2023, 0, 31) // January 31, 2023
 </span><span line-number="3" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val newDate = addMonths(date, 1) // February 28, 2023 (adjusted to last day of Feb 2023)
 </span><span line-number="4" class=""><span class="tooltip-container"></span><span class="hideable"> </span>// When using a leap year:
-</span><span line-number="5" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val leapDate = createDate(2020, 0, 31) // January 31, 2020 (leap year)
+</span><span line-number="5" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val leapDate = newDate(2020, 0, 31) // January 31, 2020 (leap year)
 </span><span line-number="6" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val leapResult = addMonths(leapDate, 1) // February 29, 2020 (adjusted to last day of Feb 2020)
 </span><span line-number="7" class=""><span class="tooltip-container"></span><span class="hideable"> </span>// When the day exists in the target month:
-</span><span line-number="8" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val marchDate = createDate(2023, 2, 15) // March 15, 2023
+</span><span line-number="8" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val marchDate = newDate(2023, 2, 15) // March 15, 2023
 </span><span line-number="9" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val juneDate = addMonths(marchDate, 3) // June 15, 2023
 </span></code></pre>
                   <div class="buttons"></div>
@@ -479,9 +479,9 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date = createDate(2020, 1, 29) // February 29, 2020 (leap year) val newDate = addYears(date, 1) //
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date = newDate(2020, 1, 29) // February 29, 2020 (leap year) val newDate = addYears(date, 1) //
 </span><span line-number="2" class=""><span class="tooltip-container"></span> February 28, 2021 (not leap year)
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val regularDate = createDate(2023, 5, 15) // June 15, 2023 val futureDate = addYears(regularDate, 5) // June 15,
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val regularDate = newDate(2023, 5, 15) // June 15, 2023 val futureDate = addYears(regularDate, 5) // June 15,
 </span><span line-number="4" class=""><span class="tooltip-container"></span>2028 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -540,7 +540,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = createDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayEnd = endOfDay(date) //
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = newDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayEnd = endOfDay(date) //
 </span><span line-number="2" class=""><span class="tooltip-container"></span><span class="hideable"> </span>December 25, 2023, 23:59:59.999 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -599,9 +599,9 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date = createDate(2023, 11, 15, 14, 30, 45) // December 15, 2023, 14:30:45 val monthEnd = endOfMonth(date)
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date = newDate(2023, 11, 15, 14, 30, 45) // December 15, 2023, 14:30:45 val monthEnd = endOfMonth(date)
 </span><span line-number="2" class=""><span class="tooltip-container"></span> // December 31, 2023, 23:59:59.999
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val febDate = createDate(2024, 1, 15) // February 15, 2024 (leap year) val febEnd = endOfMonth(febDate) // February
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val febDate = newDate(2024, 1, 15) // February 15, 2024 (leap year) val febEnd = endOfMonth(febDate) // February
 </span><span line-number="4" class=""><span class="tooltip-container"></span>29, 2024, 23:59:59.999 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -724,7 +724,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = createDate(2023, 11, 25, 14, 30, 45, 123) formatISO(date) // "2023-12-25T14:30:45.123Z" (or with
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = newDate(2023, 11, 25, 14, 30, 45, 123) formatISO(date) // "2023-12-25T14:30:45.123Z" (or with
 </span><span line-number="2" class=""><span class="tooltip-container"></span><span class="hideable"> </span>timezone offset) 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -847,7 +847,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = createDate(2023, 11, 25) // December 25, 2023 val date2 = createDate(2023, 0, 1) // January 1,
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = newDate(2023, 11, 25) // December 25, 2023 val date2 = newDate(2023, 0, 1) // January 1,
 </span><span line-number="2" class=""><span class="tooltip-container"></span> 2023
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isAfter(date1, date2) // true isAfter(date2, date1) // false 
 </span></code></pre>
@@ -913,7 +913,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = createDate(2023, 0, 1) // January 1, 2023 val date2 = createDate(2023, 11, 25) // December 25,
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = newDate(2023, 0, 1) // January 1, 2023 val date2 = newDate(2023, 11, 25) // December 25,
 </span><span line-number="2" class=""><span class="tooltip-container"></span> 2023
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isBefore(date1, date2) // true isBefore(date2, date1) // false 
 </span></code></pre>
@@ -979,8 +979,8 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = createDate(2023, 11, 25, 12, 0, 0) val date2 = createDate(2023, 11, 25, 12, 0, 0) val date3 =
-</span><span line-number="2" class=""><span class="tooltip-container"></span> createDate(2023, 11, 25, 12, 0, 1)
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = newDate(2023, 11, 25, 12, 0, 0) val date2 = newDate(2023, 11, 25, 12, 0, 0) val date3 =
+</span><span line-number="2" class=""><span class="tooltip-container"></span> newDate(2023, 11, 25, 12, 0, 1)
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isEqual(date1, date2) // true isEqual(date1, date3) // false 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -1163,8 +1163,8 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = createDate(2023, 11, 25, 12, 0, 0) val date2 = createDate(2023, 11, 25, 18, 30, 0) val date3 =
-</span><span line-number="2" class=""><span class="tooltip-container"></span> createDate(2023, 11, 26, 12, 0, 0)
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = newDate(2023, 11, 25, 12, 0, 0) val date2 = newDate(2023, 11, 25, 18, 30, 0) val date3 =
+</span><span line-number="2" class=""><span class="tooltip-container"></span> newDate(2023, 11, 26, 12, 0, 0)
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isSameDay(date1, date2) // true isSameDay(date1, date3) // false 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -1229,8 +1229,8 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = createDate(2023, 11, 1) // December 1, 2023 val date2 = createDate(2023, 11, 25) // December 25,
-</span><span line-number="2" class=""><span class="tooltip-container"></span> 2023 val date3 = createDate(2023, 10, 1) // November 1, 2023
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = newDate(2023, 11, 1) // December 1, 2023 val date2 = newDate(2023, 11, 25) // December 25,
+</span><span line-number="2" class=""><span class="tooltip-container"></span> 2023 val date3 = newDate(2023, 10, 1) // November 1, 2023
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isSameMonth(date1, date2) // true isSameMonth(date1, date3) // false 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -1295,8 +1295,8 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = createDate(2023, 0, 1) // January 1, 2023 val date2 = createDate(2023, 11, 31) // December 31,
-</span><span line-number="2" class=""><span class="tooltip-container"></span> 2023 val date3 = createDate(2024, 0, 1) // January 1, 2024
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val date1 = newDate(2023, 0, 1) // January 1, 2023 val date2 = newDate(2023, 11, 31) // December 31,
+</span><span line-number="2" class=""><span class="tooltip-container"></span> 2023 val date3 = newDate(2024, 0, 1) // January 1, 2024
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isSameYear(date1, date2) // true isSameYear(date1, date3) // false 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -1355,7 +1355,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val someDate = createDate(2023, 6, 15) // July 15, 2023 isToday(someDate) // false (unless today happens to be
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val someDate = newDate(2023, 6, 15) // July 15, 2023 isToday(someDate) // false (unless today happens to be
 </span><span line-number="2" class=""><span class="tooltip-container"></span> July 15, 2023)
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isToday(now) // always true 
 </span></code></pre>
@@ -1415,7 +1415,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val saturday = createDate(2023, 11, 23) // December 23, 2023 (a Saturday) val monday = createDate(2023, 11,
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val saturday = newDate(2023, 11, 23) // December 23, 2023 (a Saturday) val monday = newDate(2023, 11,
 </span><span line-number="2" class=""><span class="tooltip-container"></span> 25) // December 25, 2023 (a Monday)
 </span><span line-number="3" class=""><span class="tooltip-container"></span>isWeekend(saturday) // true isWeekend(monday) // false 
 </span></code></pre>
@@ -1481,7 +1481,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val start = createDate(2023, 0, 1) // January 1, 2023 val end = createDate(2023, 11, 31) // December 31, 2023
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span> val start = newDate(2023, 0, 1) // January 1, 2023 val end = newDate(2023, 11, 31) // December 31, 2023
 </span><span line-number="2" class=""><span class="tooltip-container"></span> val interval = Interval(start, end)
 </span><span line-number="3" class=""><span class="tooltip-container"></span>val dateToCheck = createDate(2023, 6, 15) // July 15, 2023 val dateOutside = createDate(2024, 0, 1) // January 1,
 </span><span line-number="4" class=""><span class="tooltip-container"></span>2024
@@ -1747,7 +1747,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = createDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayStart = startOfDay(date)
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = newDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayStart = startOfDay(date)
 </span><span line-number="2" class=""><span class="tooltip-container"></span><span class="hideable"> </span>// December 25, 2023, 00:00:00.000 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -1806,7 +1806,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = createDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val monthStart =
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span><span class="hideable"> </span>val date = newDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val monthStart =
 </span><span line-number="2" class=""><span class="tooltip-container"></span><span class="hideable"> </span>startOfMonth(date) // December 1, 2023, 00:00:00.000 
 </span></code></pre>
                   <div class="buttons"></div>
@@ -1881,7 +1881,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = createDate(2023, 0, 1) // January 1, 2023 val newDate = subDays(date, 7) // December 25, 2022
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = newDate(2023, 0, 1) // January 1, 2023 val newDate = subDays(date, 7) // December 25, 2022
 </span></code></pre>
                   <div class="buttons"></div>
                  </div>
@@ -1955,7 +1955,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = createDate(2023, 2, 15) // March 15, 2023 val newDate = subMonths(date, 3) // December 15, 2022
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = newDate(2023, 2, 15) // March 15, 2023 val newDate = subMonths(date, 3) // December 15, 2022
 </span></code></pre>
                   <div class="buttons"></div>
                  </div>
@@ -2029,7 +2029,7 @@
                <div>
                 <div>
                  <div class="snippet mono-small-block">
-                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = createDate(2023, 5, 15) // June 15, 2023 val newDate = subYears(date, 3) // June 15, 2020
+                  <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>val date = newDate(2023, 5, 15) // June 15, 2023 val newDate = subYears(date, 3) // June 15, 2020
 </span></code></pre>
                   <div class="buttons"></div>
                  </div>

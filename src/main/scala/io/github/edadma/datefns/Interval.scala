@@ -18,10 +18,10 @@ package io.github.edadma.datefns
   *   The ending date of the interval (inclusive)
   *
   * @example
-  *   {{{ // Create an interval for the year 2023 val year2023 = Interval( createDate(2023, 0, 1), // January 1, 2023
-  *   createDate(2023, 11, 31) // December 31, 2023 )
+  *   {{{ // Create an interval for the year 2023 val year2023 = Interval( newDate(2023, 0, 1), // January 1, 2023
+  *   newDate(2023, 11, 31) // December 31, 2023 )
   *
-  * // Create a week interval val weekInterval = Interval( createDate(2023, 5, 12), // June 12, 2023 createDate(2023, 5,
+  * // Create a week interval val weekInterval = Interval( newDate(2023, 5, 12), // June 12, 2023 newDate(2023, 5,
   * 18) // June 18, 2023 )
   *
   * // Create an interval between now and a week from now val currentWeek = Interval( now, addDays(now, 7) ) }}}

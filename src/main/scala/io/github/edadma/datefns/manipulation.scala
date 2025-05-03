@@ -12,7 +12,7 @@ import scala.scalajs.js
   *   A new date with the days added
   *
   * @example
-  *   {{{val date = createDate(2023, 11, 25) // December 25, 2023 val newDate = addDays(date, 7) // January 1, 2024}}}
+  *   {{{val date = newDate(2023, 11, 25) // December 25, 2023 val newDate = addDays(date, 7) // January 1, 2024}}}
   */
 def addDays(date: Date, amount: Int): Date =
   val result = new js.Date(date.getTime)
@@ -32,15 +32,15 @@ def addDays(date: Date, amount: Int): Date =
   * @example
   *   {{{
   *   // When the target month has fewer days than the original date's day:
-  *   val date = createDate(2023, 0, 31) // January 31, 2023
+  *   val date = newDate(2023, 0, 31) // January 31, 2023
   *   val newDate = addMonths(date, 1) // February 28, 2023 (adjusted to last day of Feb 2023)
   *
   *   // When using a leap year:
-  *   val leapDate = createDate(2020, 0, 31) // January 31, 2020 (leap year)
+  *   val leapDate = newDate(2020, 0, 31) // January 31, 2020 (leap year)
   *   val leapResult = addMonths(leapDate, 1) // February 29, 2020 (adjusted to last day of Feb 2020)
   *
   *   // When the day exists in the target month:
-  *   val marchDate = createDate(2023, 2, 15) // March 15, 2023
+  *   val marchDate = newDate(2023, 2, 15) // March 15, 2023
   *   val juneDate = addMonths(marchDate, 3) // June 15, 2023
   *   }}}
   */
@@ -81,10 +81,10 @@ def addMonths(date: Date, amount: Int): Date = {
   *   A new date with the years added
   *
   * @example
-  *   {{{ val date = createDate(2020, 1, 29) // February 29, 2020 (leap year) val newDate = addYears(date, 1) //
+  *   {{{ val date = newDate(2020, 1, 29) // February 29, 2020 (leap year) val newDate = addYears(date, 1) //
   *   February 28, 2021 (not leap year)
   *
-  * val regularDate = createDate(2023, 5, 15) // June 15, 2023 val futureDate = addYears(regularDate, 5) // June 15,
+  * val regularDate = newDate(2023, 5, 15) // June 15, 2023 val futureDate = addYears(regularDate, 5) // June 15,
   * 2028 }}}
   */
 def addYears(date: Date, amount: Int): Date =
@@ -103,7 +103,7 @@ def addYears(date: Date, amount: Int): Date =
   *   A new date with the days subtracted
   *
   * @example
-  *   {{{val date = createDate(2023, 0, 1) // January 1, 2023 val newDate = subDays(date, 7) // December 25, 2022}}}
+  *   {{{val date = newDate(2023, 0, 1) // January 1, 2023 val newDate = subDays(date, 7) // December 25, 2022}}}
   *
   * @see
   *   [[addDays]]
@@ -121,7 +121,7 @@ def subDays(date: Date, amount: Int): Date = addDays(date, -amount)
   *   A new date with the months subtracted
   *
   * @example
-  *   {{{val date = createDate(2023, 2, 15) // March 15, 2023 val newDate = subMonths(date, 3) // December 15, 2022}}}
+  *   {{{val date = newDate(2023, 2, 15) // March 15, 2023 val newDate = subMonths(date, 3) // December 15, 2022}}}
   *
   * @see
   *   [[addMonths]]
@@ -139,7 +139,7 @@ def subMonths(date: Date, amount: Int): Date = addMonths(date, -amount)
   *   A new date with the years subtracted
   *
   * @example
-  *   {{{val date = createDate(2023, 5, 15) // June 15, 2023 val newDate = subYears(date, 3) // June 15, 2020}}}
+  *   {{{val date = newDate(2023, 5, 15) // June 15, 2023 val newDate = subYears(date, 3) // June 15, 2020}}}
   *
   * @see
   *   [[addYears]]
@@ -154,7 +154,7 @@ def subYears(date: Date, amount: Int): Date = addYears(date, -amount)
   *   A new date with time set to the start of the day
   *
   * @example
-  *   {{{ val date = createDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayStart = startOfDay(date)
+  *   {{{ val date = newDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayStart = startOfDay(date)
   *   // December 25, 2023, 00:00:00.000 }}}
   */
 def startOfDay(date: Date): Date =
@@ -170,7 +170,7 @@ def startOfDay(date: Date): Date =
   *   A new date with time set to the end of the day
   *
   * @example
-  *   {{{ val date = createDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayEnd = endOfDay(date) //
+  *   {{{ val date = newDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val dayEnd = endOfDay(date) //
   *   December 25, 2023, 23:59:59.999 }}}
   */
 def endOfDay(date: Date): Date =
@@ -186,7 +186,7 @@ def endOfDay(date: Date): Date =
   *   A new date set to the start of the month
   *
   * @example
-  *   {{{ val date = createDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val monthStart =
+  *   {{{ val date = newDate(2023, 11, 25, 14, 30, 45) // December 25, 2023, 14:30:45 val monthStart =
   *   startOfMonth(date) // December 1, 2023, 00:00:00.000 }}}
   */
 def startOfMonth(date: Date): Date =
@@ -203,10 +203,10 @@ def startOfMonth(date: Date): Date =
   *   A new date set to the end of the month
   *
   * @example
-  *   {{{ val date = createDate(2023, 11, 15, 14, 30, 45) // December 15, 2023, 14:30:45 val monthEnd = endOfMonth(date)
+  *   {{{ val date = newDate(2023, 11, 15, 14, 30, 45) // December 15, 2023, 14:30:45 val monthEnd = endOfMonth(date)
   *   // December 31, 2023, 23:59:59.999
   *
-  * val febDate = createDate(2024, 1, 15) // February 15, 2024 (leap year) val febEnd = endOfMonth(febDate) // February
+  * val febDate = newDate(2024, 1, 15) // February 15, 2024 (leap year) val febEnd = endOfMonth(febDate) // February
   * 29, 2024, 23:59:59.999 }}}
   */
 def endOfMonth(date: Date): Date =

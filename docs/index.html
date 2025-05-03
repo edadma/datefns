@@ -35,10 +35,10 @@
             <div class="doc">
              <p>The io.github.edadma.datefns library provides utilities for working with dates in Scala.js projects.</p>
              <p>This library is inspired by the JavaScript date-fns library and provides similar functionality in a Scala-friendly way. It wraps JavaScript's Date objects with an opaque type and provides extension methods and utility functions to make working with dates more convenient.</p>
-             <p>== Overview ==</p>
+             <p>==Overview==</p>
              <p>The library is organized into several categories of functions:</p>
              <ul>
-              <li>'''Date creation''': Functions to create Date objects (now, parseISO, fromUnixTime, createDate)</li>
+              <li>'''Date creation''': Functions to create Date objects (now, parseISO, fromUnixTime, newDate)</li>
               <li>'''Formatting''': Functions to format dates into strings (format, formatISO)</li>
               <li>'''Comparison''': Functions to compare dates (isAfter, isBefore, isEqual, isSameDay, etc.)</li>
               <li>'''Manipulation''': Functions to modify dates (addDays, subMonths, startOfDay, endOfMonth, etc.)</li>
@@ -52,7 +52,7 @@
 </span><span line-number="4" class=""><span class="tooltip-container"></span>val today = now
 </span><span line-number="5" class=""><span class="tooltip-container"></span>
 </span><span line-number="6" class=""><span class="tooltip-container"></span>// Create a specific date
-</span><span line-number="7" class=""><span class="tooltip-container"></span>val christmas = createDate(2023, 11, 25) // December 25, 2023
+</span><span line-number="7" class=""><span class="tooltip-container"></span>val christmas = newDate(2023, 11, 25) // December 25, 2023
 </span><span line-number="8" class=""><span class="tooltip-container"></span>
 </span><span line-number="9" class=""><span class="tooltip-container"></span>// Parse an ISO date string
 </span><span line-number="10" class=""><span class="tooltip-container"></span>val dateFromString = parseISO("2023-12-25T12:00:00.000Z")
@@ -63,7 +63,7 @@
              <div class="snippet mono-small-block">
               <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>import io.github.edadma.datefns.*
 </span><span line-number="2" class=""><span class="tooltip-container"></span>
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = createDate(2023, 11, 25, 14, 30)
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = newDate(2023, 11, 25, 14, 30)
 </span><span line-number="4" class=""><span class="tooltip-container"></span>
 </span><span line-number="5" class=""><span class="tooltip-container"></span>// Custom format
 </span><span line-number="6" class=""><span class="tooltip-container"></span>format(date, "MMMM d, yyyy 'at' h:mm a") // "December 25, 2023 at 2:30 PM"
@@ -77,8 +77,8 @@
              <div class="snippet mono-small-block">
               <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>import io.github.edadma.datefns.*
 </span><span line-number="2" class=""><span class="tooltip-container"></span>
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val date1 = createDate(2023, 0, 1)  // January 1, 2023
-</span><span line-number="4" class=""><span class="tooltip-container"></span>val date2 = createDate(2023, 11, 31) // December 31, 2023
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val date1 = newDate(2023, 0, 1)  // January 1, 2023
+</span><span line-number="4" class=""><span class="tooltip-container"></span>val date2 = newDate(2023, 11, 31) // December 31, 2023
 </span><span line-number="5" class=""><span class="tooltip-container"></span>
 </span><span line-number="6" class=""><span class="tooltip-container"></span>isBefore(date1, date2) // true
 </span><span line-number="7" class=""><span class="tooltip-container"></span>isSameYear(date1, date2) // true
@@ -90,7 +90,7 @@
              <div class="snippet mono-small-block">
               <pre><code class="language-"><span line-number="1" class=""><span class="tooltip-container"></span>import io.github.edadma.datefns.*
 </span><span line-number="2" class=""><span class="tooltip-container"></span>
-</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = createDate(2023, 11, 25)
+</span><span line-number="3" class=""><span class="tooltip-container"></span>val date = newDate(2023, 11, 25)
 </span><span line-number="4" class=""><span class="tooltip-container"></span>
 </span><span line-number="5" class=""><span class="tooltip-container"></span>val nextWeek = addDays(date, 7)
 </span><span line-number="6" class=""><span class="tooltip-container"></span>val previousMonth = subMonths(date, 1)

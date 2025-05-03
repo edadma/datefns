@@ -224,7 +224,7 @@ extension (s: String)
   *   The ISO 8601 formatted date string
   *
   * @example
-  *   {{{ val date = createDate(2023, 11, 25, 14, 30, 45, 123) formatISO(date) // "2023-12-25T14:30:45.123Z" (or with
+  *   {{{ val date = newDate(2023, 11, 25, 14, 30, 45, 123) formatISO(date) // "2023-12-25T14:30:45.123Z" (or with
   *   timezone offset) }}}
   */
 def formatISO(date: Date): String = date.toISOString
