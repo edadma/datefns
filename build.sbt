@@ -9,8 +9,6 @@ ThisBuild / version                := "0.0.1"
 ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
 ThisBuild / sonatypeRepository     := "https://s01.oss.sonatype.org/service/local"
 
-publish / skip := true
-
 ThisBuild / publishConfiguration := publishConfiguration.value.withOverwrite(true).withChecksums(Vector.empty)
 ThisBuild / resolvers ++= Seq(
   Resolver.mavenLocal,
