@@ -9,14 +9,14 @@ import scala.scalajs.js
 class IntervalTests extends AnyFreeSpec with Matchers {
 
   // Helper to create dates with fixed values
-  def createTestDate(year: Int, month: Int, day: Int): Date = {
+  def newDate(year: Int, month: Int, day: Int): Date = {
     new js.Date(year, month, day).asInstanceOf[Date]
   }
 
   "Interval class" - {
     "should store start and end dates" in {
-      val start = createTestDate(2023, 0, 1)   // Jan 1, 2023
-      val end   = createTestDate(2023, 11, 31) // Dec 31, 2023
+      val start = newDate(2023, 0, 1)   // Jan 1, 2023
+      val end   = newDate(2023, 11, 31) // Dec 31, 2023
 
       val interval = Interval(start, end)
 
@@ -25,10 +25,10 @@ class IntervalTests extends AnyFreeSpec with Matchers {
     }
 
     "should work with isWithinInterval function" in {
-      val start   = createTestDate(2023, 0, 1)   // Jan 1, 2023
-      val middle  = createTestDate(2023, 6, 15)  // July 15, 2023
-      val end     = createTestDate(2023, 11, 31) // Dec 31, 2023
-      val outside = createTestDate(2024, 0, 1)   // Jan 1, 2024
+      val start   = newDate(2023, 0, 1)   // Jan 1, 2023
+      val middle  = newDate(2023, 6, 15)  // July 15, 2023
+      val end     = newDate(2023, 11, 31) // Dec 31, 2023
+      val outside = newDate(2024, 0, 1)   // Jan 1, 2024
 
       val interval = Interval(start, end)
 
@@ -39,7 +39,7 @@ class IntervalTests extends AnyFreeSpec with Matchers {
     }
 
     "should support intervals with same start and end" in {
-      val sameDay = createTestDate(2023, 5, 15) // June 15, 2023
+      val sameDay = newDate(2023, 5, 15) // June 15, 2023
 
       val interval = Interval(sameDay, sameDay)
 

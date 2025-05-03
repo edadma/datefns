@@ -22,9 +22,9 @@ import scala.scalajs.js
   *   A new Date object
   *
   * @example
-  *   {{{ val christmasEve = createDate(2023, 11, 24, 20, 0, 0) // December 24, 2023 at 8:00:00 PM }}}
+  *   {{{val christmasEve = newDate(2023, 11, 24, 20, 0, 0) // December 24, 2023 at 8:00:00 PM}}}
   */
-def createDate(
+def newDate(
     year: Int,
     month: Int,
     day: Int = 1,
@@ -44,7 +44,7 @@ def createDate(
   *   A new Date object representing the parsed date
   *
   * @example
-  *   {{{ val date = parseISO("2023-12-25T14:30:45.123Z") // December 25, 2023 at 14:30:45.123 }}}
+  *   {{{val date = parseISO("2023-12-25T14:30:45.123Z") // December 25, 2023 at 14:30:45.123}}}
   */
 def parseISO(dateString: String): Date = new js.Date(dateString).asInstanceOf[Date]
 
@@ -56,6 +56,6 @@ def parseISO(dateString: String): Date = new js.Date(dateString).asInstanceOf[Da
   *   A new Date object representing the timestamp
   *
   * @example
-  *   {{{ val date = fromUnixTime(1640430000) // December 25, 2021 at 09:46:40 UTC }}}
+  *   {{{val date = fromUnixTime(1640430000) // December 25, 2021 at 09:46:40 UTC}}}
   */
 def fromUnixTime(timestamp: Long): Date = new js.Date(timestamp * 1000.0).asInstanceOf[Date]

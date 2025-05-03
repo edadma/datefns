@@ -19,8 +19,8 @@ def addDays(date: Date, amount: Int): Date =
   result.setDate(date.getDate + amount)
   result.asInstanceOf[Date]
 
-/** Adds the specified number of months to the given date. If the date of the given month has fewer days than the target
-  * month, the date will be adjusted to the last day of the target month.
+/** Adds the specified number of months to the given date. If the original date's day exceeds the number of days in the
+  * target month, the result will be adjusted to the last day of the target month.
   *
   * @param date
   *   The date to be changed
@@ -30,16 +30,45 @@ def addDays(date: Date, amount: Int): Date =
   *   A new date with the months added
   *
   * @example
-  *   {{{ val date = createDate(2023, 0, 31) // January 31, 2023 val newDate = addMonths(date, 1) // February 28, 2023
-  *   (adjusted to last day of Feb)
+  *   {{{
+  *   // When the target month has fewer days than the original date's day:
+  *   val date = createDate(2023, 0, 31) // January 31, 2023
+  *   val newDate = addMonths(date, 1) // February 28, 2023 (adjusted to last day of Feb 2023)
   *
-  * val marchDate = createDate(2023, 2, 15) // March 15, 2023 val juneDate = addMonths(marchDate, 3) // June 15, 2023
-  * }}}
+  *   // When using a leap year:
+  *   val leapDate = createDate(2020, 0, 31) // January 31, 2020 (leap year)
+  *   val leapResult = addMonths(leapDate, 1) // February 29, 2020 (adjusted to last day of Feb 2020)
+  *
+  *   // When the day exists in the target month:
+  *   val marchDate = createDate(2023, 2, 15) // March 15, 2023
+  *   val juneDate = addMonths(marchDate, 3) // June 15, 2023
+  *   }}}
   */
-def addMonths(date: Date, amount: Int): Date =
+def addMonths(date: Date, amount: Int): Date = {
   val result = new js.Date(date.getTime)
-  result.setMonth(date.getMonth + amount)
+
+  // Save the day before changing month
+  val dayOfMonth = date.getDate
+
+  // Calculate target month
+  val targetMonth   = date.getMonth + amount
+  val expectedMonth = ((targetMonth % 12) + 12) % 12 // Handle negative months
+
+  // Set to 1st of target month first to avoid overflow
+  result.setDate(1)
+  result.setMonth(targetMonth)
+
+  // Try to set the original day
+  result.setDate(dayOfMonth)
+
+  // Check if month overflowed and adjust
+  if (result.getMonth != expectedMonth) {
+    // Set to last day of expected month
+    result.setDate(0)
+  }
+
   result.asInstanceOf[Date]
+}
 
 /** Adds the specified number of years to the given date. Takes leap years into account; if the original date is
   * February 29 and the new year is not a leap year, the result will be February 28.

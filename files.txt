@@ -4,6 +4,9 @@
 ./src/main/scala/io/github/edadma/datefns
 comparison.scala
 Date.scala
+
+# test sources
+./src/test/scala/io/github/edadma/datefns
 Main.scala
 
 # build files

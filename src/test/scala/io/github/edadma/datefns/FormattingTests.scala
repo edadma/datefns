@@ -9,7 +9,7 @@ import scala.scalajs.js
 class FormattingTests extends AnyFreeSpec with Matchers {
 
   // Create a fixed date for consistent testing
-  val testDate: Date = new js.Date(2023, 11, 25, 14, 30, 45, 678).asInstanceOf[Date]
+  val testDate: Date = newDate(2023, 11, 25, 14, 30, 45, 678)
 
   "Date formatting functions" - {
     "format" - {
